@@ -1,0 +1,25 @@
+ 
+<%- include('partials/header'); -%>
+<h1>HOME</h1>
+<p><%= txt %> </p>
+
+<% postArray.forEach(function(post){ %>
+    <% var link = "/post/" + post.postTitle %>
+    <% var body  =  post.postBody; %> 
+    <% var maxLength = Math.min(body.length,100); %>
+    <% var trimmedString = body.substr(0, maxLength); %>
+    <% trimmedString = trimmedString.substr(0, Math.min(trimmedString.length, trimmedString.lastIndexOf(" "))); %>
+    <h1> <%=post.postTitle %> </h1>
+    <p> <%=trimmedString %>
+    ...
+    <a href= <%=link %> >read more</a>
+    </p>
+    
+    
+        
+<% }); %>
+        
+
+
+
+<%- include('partials/footer'); -%>
